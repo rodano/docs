@@ -1,0 +1,17 @@
+/node_modules
+/_site
+
+*.acn
+*.aux
+*.bbl
+*.blg
+*.ist
+*.glg
+*.glo
+*.gls
+*.glsdefs
+*.log
+*.out
+*.pdf
+*.synctex.gz
+*.toc

@@ -1,0 +1,45 @@
+name: Build and deploy website
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write # to verify the deployment originates from an appropriate source
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '23'
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm ci
+      - name: Lint website
+        run: npm run lint
+      - name: Build website
+        run: npm run build -- --pathprefix 'rodano-docs'
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    steps:
+      - name: Deploy to GitHub pages
+        id: deployment
+        uses: actions/deploy-pages@v4

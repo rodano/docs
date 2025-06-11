@@ -1,0 +1,127 @@
+\documentclass[11pt,a4paper,oneside]{article}
+
+\input{../template}
+
+\begin{document}
+\title{Rodano validation Report}
+\newcommand{\documentid}{ValidationReport}
+\newcommand{\version}{DEV-SNAPSHOT}
+\date{\today}
+
+\input{../header}
+
+\clearpage
+
+\tableofcontents
+
+\clearpage
+
+\section{Introduction}
+This document defines the Validation Report for KV.
+
+This document has been produced in accordance with the Validation Policy and follows the Validation Plan guidelines.
+
+\subsection{Purpose}
+The objective of this Validation Report is to summarize the results of all qualification activities performed during validation of the EDC software.
+
+\subsection{Scope}
+This procedure shall be applied to the KV regulated system under development at RodanoTech. The scope of this document is restricted to the Validation of the EDC software version \version, and does not cover any specific study instance. Instances of the EDC platform used for the collection of patient data are covered under individual validation exercises.
+
+\section{System description}
+The RodanoTech Electronic Data Capture software is a web based patient data collection system used to gather information from medical professionals about patients enrolled in a clinical trial for pharmaceutical products.
+
+The system provides the following functionality:
+
+\begin{itemize}
+	\item Monitoring of the site recruitment process
+	\item Case Report Form (CRF) with Audit trail, Edit checks and Query management
+	\item Dashboard, graphics, data export facilities
+	\item Message/Alert management
+	\item Authorization based on the users role within the system
+	\item Multilingual system
+\end{itemize}
+
+The system relies on following dependencies:
+
+\begin{itemize}
+	\item Java for the server
+	\item HTML and Javascript for the presentation layer
+	\item Data is stored in a MySQL relational database
+\end{itemize}
+
+\section{Validation results}
+All validation activities have been performed according to the Validation Plan. The following sections summarize the results of the different qualification phases.
+
+\subsection{Operational Qualification}
+All test associated with the system pass successfully. Operational Qualification has been performed according to approved test suites with defined acceptance criteria, using a qualified data set that mimics production environment.
+
+The Operational Qualification demonstrates that the system conforms to the approved processes and satisfies the agreed business and functional requirements.
+
+\begin{itemize}
+	\item \textbf{Minimal Operational Qualification (no hardcopy retention)}
+
+	Minimal Operational Qualification has been performed and, as there is no additional impact to report, hardcopy test evidence has not been provided for this version.
+	\item \textbf{Operational Qualification Report} IT-0703-KV-OQReport-\version
+
+	Operational Qualification provides documented evidence that the system can operate as expected under appropriate configuration. Hardcopy test summaries have been provided to demonstrate the system is a true representation of the requirements and that there are no regressions to be reported.
+\end{itemize}
+
+\subsection{Design Qualification}
+The Design Qualification performed certifies that the design of the system conforms to regulatory requirements and approved standards.
+
+Personal training has been performed for new or refined procedures and guidance.
+
+% \begin{itemize}
+% 	\item \textbf{Design impact on the system is negligible (no report)}
+
+% 	Design Qualification has been performed and there is no additional impact to report.
+% 	\item \textbf{Design Qualification Report} IT-0704-KV-DQReport-\version
+
+% 	Design Qualification impact on the system have been reported in a separate document. Additional, modified or archived procedures have been referenced in the report.
+% \end{itemize}
+
+\subsection{Installation Qualification}
+The system version has been correctly released into production as per the appropriate procedures. The Installation Qualification indicated the system is in a nominal state after release and performs according to the specification.
+
+% \begin{itemize}
+% 	\item \textbf{Regular Installation Qualification (no report)}
+
+% 	Regular Installation Qualification has been performed and there are no deviations to report.
+% 	\item \textbf{Setup of a new instance (no report)}
+
+% 	No deviations to report after the successful setup and installation of a new instance.
+% 	\item \textbf{Installation Qualification Report} IT-0705-KV-IQReport-\version
+
+% 	Installation Qualification has been performed and results are reported in a separate document.
+% \end{itemize}
+
+\subsection{Production Qualification}
+Production Qualification activities have been conducted on the production instance, after the release of this version, and reveals the system is performing according to the specification.
+
+% \begin{itemize}
+% 	\item \textbf{Production Qualification is unnecessary (no report)}
+
+% 	Production Qualification has been considered unnecessary for this version of the system.
+% 	\item \textbf{Production Qualification Report} IT-0706-KV-PQReport-\version
+
+% 	Production Qualification has been performed and results are reported in a separate document. When available, additional production metrics are referenced in the report.
+% \end{itemize}
+
+\section{Acceptance Criteria}
+The Validation Plan contains the acceptance criteria to be satisfied for a successful validation. The system is considered shippable when it satisfies at least the following (most critical) acceptance criteria:
+
+\begin{itemize}
+	\item It has been demonstrated that the user specifications and regulatory requirements have been satisfied
+	\item The system performs reproducibly and consistently
+	\item All known issues and deviations have been documented and resolved, or as the risk level is considered appropriate, their resolution has been planned for future iterations
+	\item Any constraints and concerns regarding the release of the system to production have been solved or documented accordingly
+	\item All essential documents have been produced, reviewed, and approved
+\end{itemize}
+
+\section{Summary and Conclusions}
+The conclusion of this validation process is that version \version of the RodanoTech EDC software and the functionality implemented as part of this iteration have been proved to be safe to deploy into the production environment.
+
+\section{Approval}
+Completion of the signature blocks on the first page signifies that the appropriate parties have reviewed the data and results generated during the validation and agree that the conclusions drawn from the data are accurate based on the acceptance criteria stated above. Approval of this report indicates that the equipment, process, system, or utility meets the needs of the system.
+
+\end{document}

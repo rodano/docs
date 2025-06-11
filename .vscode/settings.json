@@ -1,0 +1,24 @@
+{
+	"files.exclude": {
+		"node_modules": true,
+		"package-lock.json": true,
+		"_site": true,
+		"**/*.acn": true,
+		"**/*.aux": true,
+		"**/*.bbl": true,
+		"**/*.blg": true,
+		"**/*.ist": true,
+		"**/*.glg": true,
+		"**/*.glo": true,
+		"**/*.gls": true,
+		"**/*.glsdefs": true,
+		"**/*.log": true,
+		"**/*.out": true,
+		"**/*.pdf": true,
+		"**/*.synctex.gz": true,
+		"**/*.toc": true
+	},
+	"yaml.schemas": {
+		"https://json.schemastore.org/github-workflow.json": ".github/workflows/deploy.yml"
+	}
+}

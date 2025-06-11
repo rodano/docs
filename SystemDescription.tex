@@ -1,0 +1,62 @@
+\documentclass[11pt,a4paper,oneside]{article}
+
+\input{./template}
+
+\begin{document}
+\title{Rodano System Description}
+\newcommand{\documentid}{SystemDescription}
+\newcommand{\version}{1.1.0-draft}
+\date{November 8, 2022}
+
+\input{./header}
+
+\clearpage
+
+\tableofcontents
+
+\clearpage
+
+\section{Introduction}
+This document describes the basic functioning of KV system under development at \rodanotech{}. It is meant to be a complement to the Technical Specifications document \cite{IT-0201-KV-TechnicalSpecifications}.
+
+This document has been produced in accordance with the Validation Policy \cite{IT-0700-ValidationPolicy} and follows the Documentation Procedure \cite{IT-0000-DocumentationProcedure} guidelines.
+
+\subsection{Purpose}
+This document provides a basic and short overview of the KV system. Its main purpose is to familiarize its readers with the main principles of the KV system without having to wade through all the technical details exposed in the Technical Specification document \cite{IT-0201-KV-TechnicalSpecifications}.
+
+\section{System overview}
+KV is an EDC system used for medical studies. It is a highly configurable, web-based application the abides by the high requirements of the 21 CFR \cite{IT-0204-System-21CFRCompliance}.
+
+The system consists of several main components:
+
+\begin{itemize}
+	\item \textbf{KV-Config} - JavaScript-based \cite{JavaScript} configuration tool.
+	\item \textbf{KV-API} - Java \cite{Java} server running on Spring Boot framework \cite{SpringBoot}.
+	\item \textbf{KV-Website} - JavaScript \cite{JavaScript} UI for EDC.
+\end{itemize}
+
+\section{Configuration file and KV-Config}
+The KV system needs a configuration file in order to start up. The configuration file defines all the necessary setting and entities for the study that needs to be performed. The configuration file is produced by the EDC programmers with sufficient field knowledge using the KV-Config tool. The produced configuration file containing all the main study definitions, entities and settings is then fed to the KV system in order to boot up the KV EDC system for a specific study.
+
+\section{KV-API}
+The KV-API is the backend server component of the application that processes the data sent by the users through the API interface. This component manages the database access and storage. Its main purposes are:
+
+\begin{itemize}
+	\item Manage the user logins in order to only allow the authorized users to interact with the system.
+	\item Reject invalid data sent by users and inform them about it in real-time.
+	\item Process and clean up the valid data sent by the user.
+	\item Store the newly introduced data and generate an audit trail that keeps track of all the changes made to the data.
+	\item Generate and send reports on the acquired data to the users.
+\end{itemize}
+
+\section{KV-Website}
+The KV-Website is the UI component of the application that allows the non-technical users to interact with the KV system through a web browser. It allows the authorized users to input data relevant to the study protocol and receive feedback on whether the input data abides by the study protocol in real-time. The KV-Website also allows managing users in the system for a particular study. This component communicates with the KV-API component through the API interface using the HTTP protocol.
+
+\section{Study deployment}
+Anytime a new study is to be put in production: the new study configuration file is prepared and verified by the clients, then the study is deployed to production with the latest version of the KV system as described in the Source Code Management procedure \cite{IT-1500-SCMProcedure}. The deployment is performed by the clients with help and supervision of the Sysadmin.
+
+The only instance of a study using the KV system that is under the IT group management is the test study instance as described in the Test plan \cite{IT-0501-KV-TestPlan}.
+
+\clearpage
+
+\end{document}

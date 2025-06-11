@@ -1,0 +1,131 @@
+% use \input{template} to include in your document
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[nottoc]{tocbibind}
+\usepackage[cm]{fullpage}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{helvet}
+\usepackage{tabularx}
+\usepackage{listings}
+\usepackage{xcolor,mdframed}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{multirow}
+\usepackage[nonumberlist,acronym,toc]{glossaries}
+\usepackage{lscape}
+\usepackage{indentfirst}
+\usepackage{caption}
+\usepackage{charter}
+\usepackage[T1]{fontenc}
+\usepackage{wasysym}
+\usepackage{ifthen}
+\usepackage{lastpage}
+\usepackage{subfig}
+
+\makeatletter
+
+\pagestyle{fancy}
+
+% tables
+\def\arraystretch{1.5}
+\restylefloat{table}
+\newcolumntype{L}{>{\raggedright\arraybackslash}p}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}p}
+
+% colors
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+% link
+\hypersetup{%
+	colorlinks=true,
+	linkcolor=black,
+	filecolor=gray,
+	urlcolor=gray,
+	breaklinks=true
+}
+\urlstyle{same}
+
+% code
+\lstset{%
+	frame=single,
+	language=bash,
+	aboveskip=3mm,
+	belowskip=3mm,
+	numbers=none,
+	showstringspaces=false,
+	columns=flexible,
+	basicstyle={\small\ttfamily},
+	keywordstyle=\color{blue},
+	commentstyle=\color{dkgreen},
+	stringstyle=\color{mauve},
+	breaklines=true,
+	breakatwhitespace=false
+	tabsize=2
+}
+
+% add parameters for Nginx configuration
+\lstdefinelanguage{Nginx}{
+	morekeywords={
+		server,server_name,listen,rewrite,location,
+		ssl,ssl_session_cache,ssl_session_timeout,ssl_certificate,ssl_certificate_key,ssl_protocols,ssl_ciphers,ssl_verify_depth,
+		access_log,error_log,error_page
+	}
+}
+
+% add parameters for Ini files
+\lstdefinelanguage{Ini}{
+	tag=[s]{[]},
+	tagstyle=\color{mauve},
+	usekeywordsintag=true
+}[html]
+
+% add parameters for JSON files
+% \lstdefinelanguage{JSON}{
+	% tag=[s]{[]},
+	% usekeywordsintag=true
+% }[html]
+
+% add some keywords to bash language
+\lstset{language=bash}
+\lstset{
+	morekeywords={
+		cp,mkdir,rm,ln,unlink,chown,chmod,sudo,
+		usermod,useradd,userdel,passwd,
+		hostname,tar,gzip,crontab,wget,nginx,mysql
+	}
+}
+
+% nice boxes
+\newenvironment{important}[1][]{%
+	\begin{mdframed}[%
+	backgroundcolor={red!15}, hidealllines=true,
+	skipabove=0.7\baselineskip, skipbelow=0.7\baselineskip,
+	splitbottomskip=2pt, splittopskip=4pt, #1]%
+	\makebox[0pt]{% ignore the withd of !
+		\smash{% ignore the height of !
+			\fontsize{32pt}{32pt}\selectfont% make the ! bigger
+			\hspace*{-19pt}% move ! to the left
+			\raisebox{-2pt}{% move ! up a little
+				{\color{red!70!black}\sffamily\bfseries !}% type the bold red !
+			}%
+		}%
+	}%
+}{\end{mdframed}}
+
+\newenvironment{information}[1][]{%
+	\begin{mdframed}[%
+	backgroundcolor={blue!15}, hidealllines=true,
+	skipabove=0.7\baselineskip, skipbelow=0.7\baselineskip,
+	splitbottomskip=2pt, splittopskip=4pt, #1]%
+}{\end{mdframed}}
+
+% Command to enforce the \rodanotech{} spelling.
+\newcommand{\rodanotech}{RodanoTech IT}
+
+% Set the bibliography style for the whole document
+\bibliographystyle{unsrt}

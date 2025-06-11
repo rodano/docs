@@ -1,0 +1,846 @@
+\documentclass[11pt,a4paper,oneside]{article}
+
+\input{../template}
+
+\begin{document}
+\title{Configurator - Technical specifications}
+\newcommand{\documentid}{Configurator-TechnicalSpecifications}
+\newcommand{\version}{DEV-SNAPSHOT}
+\date{\today}
+
+\input{../header}
+
+\tableofcontents
+
+\clearpage
+
+\newcommand{\funcspec}[1] {\texttt{#1}}
+
+\section{Introduction}
+KVConfig is a Javascript application that allows to configure with ease all aspects of a clinical study built with KV. KVConfig can run in two different modes:
+\begin{itemize}
+	\item Stand-alone, used to create a new study.
+	\item Hosted by a KV server, used to edit an existing configuration.
+\end{itemize}
+
+\section{Functional requirements}
+
+%  study
+\subsection{Study}
+In stand-alone mode, KVConfig offers to create a study from scratch.
+
+% language
+\subsection{Language}
+
+\subsubsection{Add a language}
+It should be possible to add a language.
+
+\paragraph{Process}
+The user moves his mouse over the "Language" entity in the nodes tree and click on the addition icon (green plus). The application then shows an edition panel and the user updates language settings.
+
+\paragraph{Pre-conditions}
+\begin{itemize}
+	\item Id of the new language must not already exist in the configuration.
+\end{itemize}
+
+\paragraph{Post-conditions}
+\begin{itemize}
+	\item A new language is added in the configuration (\funcspec{FS\_LANGUAGE\_001}).
+\end{itemize}
+
+\subsubsection{Edit a language}
+It should be possible to edit a language.
+
+\paragraph{Process}
+The user selects a language in the nodes tree. The application shows an edition panel and the user updates language settings.
+
+\paragraph{Pre-conditions}
+\begin{itemize}
+	\item The new language id must not already exist in the configuration.
+\end{itemize}
+
+\paragraph{Post-conditions}
+\begin{itemize}
+	\item Language settings have been updated (\funcspec{FS\_LANGUAGE\_002}).
+\end{itemize}
+
+\subsubsection{Delete a language}
+It should be possible to delete a language.
+
+\paragraph{Process}
+The user moves his mouse over the language on the node tree and click on the deletion icon (red cross).
+
+\paragraph{Pre-conditions}
+
+\paragraph{Post-conditions}
+\begin{itemize}
+	\item The language has been deleted (\funcspec{FS\_LANGUAGE\_003}).
+\end{itemize}
+
+% country
+\subsection{Country}
+
+\subsubsection{Add a country}
+It should be possible to add a country.
+
+\paragraph{Process}
+The user moves his mouse over the "Country" entity in the nodes tree and click on the addition icon (green plus). The application then shows an edition panel and the user updates country settings.
+
+\paragraph{Pre-conditions}
+\begin{itemize}
+	\item Id of the new country must not already exist in the configuration.
+\end{itemize}
+
+\paragraph{Post-conditions}
+\begin{itemize}
+	\item A new country is added in the configuration (\funcspec{FS\_COUNTRY\_001}).
+\end{itemize}
+
+\subsubsection{Edit a country}
+It should be possible to edit a country.
+
+\paragraph{Process}
+The user selects a country in the nodes tree. The application shows an edition panel and the user updates country settings.
+
+\paragraph{Pre-conditions}
+\begin{itemize}
+	\item The new country id must not already exist in the configuration.
+\end{itemize}
+
+\paragraph{Post-conditions}
+\begin{itemize}
+	\item Country settings have been updated (\funcspec{FS\_COUNTRY\_002}).
+\end{itemize}
+
+\subsubsection{Delete a country}
+It should be possible to delete a country.
+
+\paragraph{Process}
+The user moves his mouse over the country on the node tree and click on the deletion icon (red cross).
+
+\paragraph{Pre-conditions}
+
+\paragraph{Post-conditions}
+\begin{itemize}
+	\item The country has been deleted (\funcspec{FS\_COUNTRY\_003}).
+\end{itemize}
+
+% profile
+\subsection{Profile}
+
+\subsubsection{Add a profile}
+It should be possible to add a profile.
+
+\paragraph{Process}
+The user moves his mouse over the "Profile" entity in the nodes tree and click on the addition icon (green plus). The application then shows an edition panel and the user updates profile settings.
+
+\paragraph{Pre-conditions}
+\begin{itemize}
+	\item Id of the new profile must not already exist in the configuration.
+\end{itemize}
+
+\paragraph{Post-conditions}
+\begin{itemize}
+	\item A new profile is added in the configuration (\funcspec{FS\_PROFILE\_001}).
+\end{itemize}
+
+\subsubsection{Edit a profile}
+It should be possible to edit a profile.
+
+\paragraph{Process}
+The user selects a profile in the nodes tree. The application shows an edition panel and the user updates profile settings.
+
+\paragraph{Pre-conditions}
+The new profile id must not already exist in the configuration.
+
+\paragraph{Post-conditions}
+\begin{itemize}
+	\item Profile settings have been updated (\funcspec{FS\_PROFILE\_002}).
+	\item Profile id has been updated in "Profile/Profiles" matrix (\funcspec{FS\_PROFILE\_003}).
+\end{itemize}
+
+\subsubsection{Delete a profile}
+It should be possible to delete a profile.
+
+\paragraph{Process}
+The user moves his mouse over the profile on the node tree and click on the deletion icon (red cross).
+
+\paragraph{Pre-conditions}
+
+\paragraph{Post-conditions}
+\begin{itemize}
+	\item The profile has been deleted (\funcspec{FS\_PROFILE\_004}).
+	\item Profile id has been removed in "Profile/Profiles" matrix (\funcspec{FS\_PROFILE\_005}).
+\end{itemize}
+
+% feature
+\subsection{Feature}
+
+\subsubsection{Add a feature}
+It should be possible to add a feature.
+
+\paragraph{Process}
+The user moves his mouse over the "Feature" entity in the nodes tree and click on the addition icon (green plus). The application then shows an edition panel and the user updates feature settings.
+
+\paragraph{Pre-conditions}
+\begin{itemize}
+	\item Id of the new feature must not already exist in the configuration.
+\end{itemize}
+
+\paragraph{Post-conditions}
+\begin{itemize}
+	\item A new feature is added in the configuration (\funcspec{FS\_FEATURE\_001}).
+\end{itemize}
+
+\subsubsection{Edit a feature}
+It should be possible to edit a feature.
+
+\paragraph{Process}
+The user selects a feature in the nodes tree. The application shows an edition panel and the user updates feature settings.
+
+\paragraph{Pre-conditions}
+\begin{itemize}
+	\item The new feature id must not already exist in the configuration.
+\end{itemize}
+
+\paragraph{Post-conditions}
+\begin{itemize}
+	\item Feature settings have been updated (\funcspec{FS\_FEATURE\_002}).
+	\item Feature id has been updated in "Profile/Features" matrix (\funcspec{FS\_FEATURE\_003}).
+\end{itemize}
+
+\subsubsection{Delete a feature}
+It should be possible to delete a feature.
+
+\paragraph{Process}
+The user moves his mouse over the feature on the node tree and click on the deletion icon (red cross).
+
+\paragraph{Pre-conditions}
+
+\paragraph{Post-conditions}
+\begin{itemize}
+	\item The feature has been deleted (\funcspec{FS\_FEATURE\_004}).
+	\item Feature id has been removed in "Profile/Features" matrix (\funcspec{FS\_FEATURE\_005}).
+\end{itemize}
+
+% menu
+\subsection{Menu}
+
+\subsubsection{Add a menu}
+It should be possible to add a menu.
+
+\paragraph{Process}
+The user moves his mouse over the "Menu" entity in the nodes tree and click on the addition icon (green plus). The application then shows an edition panel and the user updates menu settings.
+
+\paragraph{Pre-conditions}
+\begin{itemize}
+	\item Id of the new menu must not already exist in the configuration (among level 1 and 2).
+\end{itemize}
+
+\paragraph{Post-conditions}
+\begin{itemize}
+	\item A new menu is added in the configuration (\funcspec{FS\_MENU\_001}).
+\end{itemize}
+
+\subsubsection{Edit a menu}
+It should be possible to edit a menu.
+
+\paragraph{Process}
+The user selects a menu in the nodes tree. The application shows an edition panel and the user updates menu settings.
+
+\paragraph{Pre-conditions}
+\begin{itemize}
+	\item The new menu id must not already exist in the configuration.
+\end{itemize}
+
+\paragraph{Post-conditions}
+\begin{itemize}
+	\item Menu settings have been updated (\funcspec{FS\_MENU\_002}).
+	\item Menu id has been updated in "Profile/Menus" matrix (\funcspec{FS\_MENU\_003}).
+\end{itemize}
+
+\subsubsection{Delete a menu}
+It should be possible to delete a menu.
+
+\paragraph{Process}
+The user moves his mouse over the menu on the node tree and click on the deletion icon (red cross).
+
+\paragraph{Pre-conditions}
+
+\paragraph{Post-conditions}
+\begin{itemize}
+	\item The menu has been deleted (\funcspec{FS\_MENU\_004}).
+	\item Menu id has been removed in "Profile/Menus" matrix (\funcspec{FS\_MENU\_005}).
+\end{itemize}
+
+% scope model
+\subsection{Scope model}
+
+\subsubsection{Add a scope model}
+It should be possible to add a scope model.
+
+\paragraph{Process}
+The user moves his mouse over the "Scope model" entity in the nodes tree and click on the addition icon (green plus). The application then shows an edition panel and the user updates scope model settings.
+
+\paragraph{Pre-conditions}
+\begin{itemize}
+	\item Id of the new scope model must not already exist in the configuration.
+\end{itemize}
+
+\paragraph{Post-conditions}
+\begin{itemize}
+	\item A new scope model is added in the configuration (\funcspec{FS\_SCOPE\_MODEL\_001}).
+\end{itemize}
+
+\subsubsection{Edit a scope model}
+It should be possible to edit a scope model.
+
+\paragraph{Process}
+The user selects a scope model in the nodes tree. The application shows an edition panel and the user updates scope model settings.
+
+\paragraph{Pre-conditions}
+\begin{itemize}
+	\item The new scope model id must not already exist in the configuration.
+\end{itemize}
+
+\paragraph{Post-conditions}
+\begin{itemize}
+	\item Scope model settings have been updated (\funcspec{FS\_SCOPE\_MODEL\_002}).
+	\item Scope model id has been updated in "Profile/Scope models" matrix (\funcspec{FS\_SCOPE\_MODEL\_003}).
+	\item Scope model id has been updated in every other scope model which has a reference to the scope model (\funcspec{FS\_SCOPE\_MODEL\_004}).
+\end{itemize}
+
+\subsubsection{Delete a scope model}
+It should be possible to delete a scope model.
+
+\paragraph{Process}
+The user moves his mouse over the scope model on the node tree and click on the deletion icon (red cross).
+
+\paragraph{Pre-conditions}
+
+\paragraph{Post-conditions}
+\begin{itemize}
+	\item The scope model has been deleted (\funcspec{FS\_SCOPE\_MODEL\_006}).
+	\item Scope model id has been removed in "Profile/Scope models" matrix (\funcspec{FS\_SCOPE\_MODEL\_007}).
+	\item Scope model id has been removed from every other scope model which has a reference to the scope model (\funcspec{FS\_SCOPE\_MODEL\_008}).
+\end{itemize}
+
+% event model
+\subsection{Event model}
+
+\subsubsection{Add an event model}
+It should be possible to add an event model.
+
+\paragraph{Process}
+The user moves his mouse over the "Event model" entity in the nodes tree and click on the addition icon (green plus). The application then shows an edition panel and the user updates event model settings.
+
+\paragraph{Pre-conditions}
+\begin{itemize}
+	\item Id of the new event model must not already exist in the configuration.
+\end{itemize}
+
+\paragraph{Post-conditions}
+\begin{itemize}
+	\item A new event model is added in the configuration (\funcspec{FS\_EVENT\_MODEL\_001}).
+\end{itemize}
+
+\subsubsection{Edit an event model}
+It should be possible to edit an event model.
+
+\paragraph{Process}
+The user selects an event model in the nodes tree. The application shows an edition panel and the user updates event model settings.
+
+\paragraph{Pre-conditions}
+\begin{itemize}
+	\item The new event model id must not already exist in the configuration.
+\end{itemize}
+
+\paragraph{Post-conditions}
+\begin{itemize}
+	\item Event model settings have been updated (\funcspec{FS\_EVENT\_MODEL\_002}).
+	\item Event model id has been updated in "Profile/Event models" matrix (\funcspec{FS\_EVENT\_MODEL\_003}).
+	\item Event model id has been updated in every other event model which has a reference to the event model (\funcspec{FS\_EVENT\_MODEL\_004}).
+\end{itemize}
+
+\subsubsection{Delete an event model}
+It should be possible to delete an event model.
+
+\paragraph{Process}
+The user moves his mouse over the event model on the node tree and click on the deletion icon (red cross).
+
+\paragraph{Pre-conditions}
+
+\paragraph{Post-conditions}
+\begin{itemize}
+	\item The event model has been deleted (\funcspec{FS\_EVENT\_MODEL\_005}).
+	\item Event model id has been removed in "Profile/Event models" matrix (\funcspec{FS\_EVENT\_MODEL\_006}).
+	\item Event model id has been removed from every other event model which has a reference to the event model (\funcspec{FS\_EVENT\_MODEL\_007}).
+\end{itemize}
+
+% dataset model
+\subsection{Dataset model}
+
+\subsubsection{Add a dataset model}
+It should be possible to add a dataset model.
+
+\paragraph{Process}
+The user moves his mouse over the "Dataset model" entity in the nodes tree and click on the addition icon (green plus). The application then shows an edition panel and the user updates dataset model settings.
+
+\paragraph{Pre-conditions}
+\begin{itemize}
+	\item Id of the new dataset model must not already exist in the configuration.
+\end{itemize}
+
+\paragraph{Post-conditions}
+\begin{itemize}
+	\item A new dataset model is added in the configuration (\funcspec{FS\_DATASET\_MODEL\_001}).
+\end{itemize}
+
+\subsubsection{Edit a dataset model}
+It should be possible to edit a dataset model.
+
+\paragraph{Process}
+The user selects a dataset model in the nodes tree. The application shows an edition panel and the user updates dataset model settings.
+
+\paragraph{Pre-conditions}
+\begin{itemize}
+	\item The new dataset model id must not already exist in the configuration.
+\end{itemize}
+
+\paragraph{Post-conditions}
+\begin{itemize}
+	\item Dataset model settings have been updated (\funcspec{FS\_DATASET\_MODEL\_002}).
+	\item Dataset model id has been updated in "Profile/Dataset models" matrix (\funcspec{FS\_DATASET\_MODEL\_003}).
+	\item Dataset model id has been updated in every scope model which has a reference to the dataset model (\funcspec{FS\_DATASET\_MODEL\_004}).
+	\item Dataset model id has been updated in every event model which has a reference to the dataset model (\funcspec{FS\_DATASET\_MODEL\_005}).
+	\item Dataset model id has been updated in every form model which has a reference to the dataset model (\funcspec{FS\_DATASET\_MODEL\_006}).
+\end{itemize}
+
+\subsubsection{Delete a dataset model}
+It should be possible to delete a dataset model.
+
+\paragraph{Process}
+The user moves his mouse over the dataset model on the node tree and click on the deletion icon (red cross).
+
+\paragraph{Pre-conditions}
+
+\paragraph{Post-conditions}
+\begin{itemize}
+	\item The dataset model has been deleted (\funcspec{FS\_DATASET\_MODEL\_007}).
+	\item Dataset model id has been removed in "Profile/Dataset models" matrix (\funcspec{FS\_DATASET\_MODEL\_008}).
+	\item Dataset model id has been removed from every scope model which has a reference to the dataset model (\funcspec{FS\_DATASET\_MODEL\_009}).
+	\item Dataset model id has been removed from every event model which has a reference to the dataset model (\funcspec{FS\_DATASET\_MODEL\_010}).
+	\item Dataset model id has been removed from every form model which has a reference to the dataset model (\funcspec{FS\_DATASET\_MODEL\_011}).
+\end{itemize}
+
+% field model
+\subsection{Field model}
+
+\subsubsection{Add an field model}
+It should be possible to add an field model.
+
+\paragraph{Process}
+The user moves his mouse over the "Field model" entity in the nodes tree and click on the addition icon (green plus). The application then shows an edition panel and the user updates field model settings.
+
+\paragraph{Pre-conditions}
+\begin{itemize}
+	\item Id of the new field model must not already exist in the configuration.
+\end{itemize}
+
+\paragraph{Post-conditions}
+\begin{itemize}
+	\item A new field model is added in the configuration (\funcspec{FS\_FIELD\_MODEL\_001}).
+\end{itemize}
+
+\subsubsection{Edit an field model}
+It should be possible to edit an field model.
+
+\paragraph{Process}
+The user selects an field model in the nodes tree. The application shows an edition panel and the user updates field model settings.
+
+\paragraph{Pre-conditions}
+\begin{itemize}
+	\item The new field model id must not already exist in the configuration.
+\end{itemize}
+
+\paragraph{Post-conditions}
+\begin{itemize}
+	\item Field model settings have been updated (\funcspec{FS\_FIELD\_MODEL\_002}).
+	\item Field model id has been updated in every form model which has a reference to the field model (\funcspec{FS\_FIELD\_MODEL\_003}).
+\end{itemize}
+
+\subsubsection{Delete an field model}
+It should be possible to delete an field model.
+
+\paragraph{Process}
+The user moves his mouse over the field model on the node tree and click on the deletion icon (red cross).
+
+\paragraph{Pre-conditions}
+
+\paragraph{Post-conditions}
+\begin{itemize}
+	\item The field model has been deleted (\funcspec{FS\_FIELD\_MODEL\_004}).
+	\item Field model id has been removed from every form model which has a reference to the field model (\funcspec{FS\_FIELD\_MODEL\_005}).
+\end{itemize}
+
+% validator
+\subsection{Validator}
+
+\subsubsection{Add a validator}
+It should be possible to add a validator.
+
+\paragraph{Process}
+The user moves his mouse over the "Validator" entity in the nodes tree and click on the addition icon (green plus). The application then shows an edition panel and the user updates validator settings.
+
+\paragraph{Pre-conditions}
+\begin{itemize}
+	\item Id of the new validator must not already exist in the configuration.
+\end{itemize}
+
+\paragraph{Post-conditions}
+\begin{itemize}
+	\item A new validator is added in the configuration (\funcspec{FS\_VALIDATOR\_001}).
+\end{itemize}
+
+\subsubsection{Edit a validator}
+It should be possible to edit a validator.
+
+\paragraph{Process}
+The user selects a validator in the nodes tree. The application shows an edition panel and the user updates validator settings.
+
+\paragraph{Pre-conditions}
+\begin{itemize}
+	\item The new validator id must not already exist in the configuration.
+\end{itemize}
+
+\paragraph{Post-conditions}
+\begin{itemize}
+	\item Validator settings have been updated (\funcspec{FS\_VALIDATOR\_002}).
+	\item Validator id has been updated in every field model which has a reference to the validator (\funcspec{FS\_VALIDATOR\_003}).
+\end{itemize}
+
+\subsubsection{Delete a validator}
+It should be possible to delete a validator.
+
+\paragraph{Process}
+The user moves his mouse over the validator on the node tree and click on the deletion icon (red cross).
+
+\paragraph{Pre-conditions}
+
+\paragraph{Post-conditions}
+\begin{itemize}
+	\item The validator has been deleted (\funcspec{FS\_VALIDATOR\_004}).
+	\item Validator id has been removed from every field model which has a reference to the validator (\funcspec{FS\_VALIDATOR\_005}).
+\end{itemize}
+
+% workflow
+\subsection{Workflow}
+
+\subsubsection{Add a workflow}
+It should be possible to add a workflow.
+
+\paragraph{Process}
+The user moves his mouse over the "Workflow" entity in the nodes tree and click on the addition icon (green plus). The application then shows an edition panel and the user updates workflow settings.
+
+\paragraph{Pre-conditions}
+\begin{itemize}
+	\item Id of the new workflow must not already exist in the configuration.
+\end{itemize}
+
+\paragraph{Post-conditions}
+\begin{itemize}
+	\item A new workflow is added in the configuration (\funcspec{FS\_WORKFLOW\_001}).
+\end{itemize}
+
+\subsubsection{Edit a workflow}
+It should be possible to edit a workflow.
+
+\paragraph{Process}
+The user selects a workflow in the nodes tree. The application shows an edition panel and the user updates workflow settings.
+
+\paragraph{Pre-conditions}
+\begin{itemize}
+	\item The new workflow id must not already exist in the configuration.
+\end{itemize}
+
+\paragraph{Post-conditions}
+\begin{itemize}
+	\item Workflow settings have been updated (\funcspec{FS\_WORKFLOW\_002}).
+	\item Workflow id has been updated in every profile which has a reference to the workflow (\funcspec{FS\_WORKFLOW\_003}).
+	\item Workflow id has been updated in every scope model which has a reference to the workflow (\funcspec{FS\_WORKFLOW\_004}).
+	\item Workflow id has been updated in every event model which has a reference to the workflow (\funcspec{FS\_WORKFLOW\_005}).
+	\item Workflow id has been updated in every form model which has a reference to the workflow (\funcspec{FS\_WORKFLOW\_006}).
+	\item Workflow id has been updated in every field model which has a reference to the workflow (\funcspec{FS\_WORKFLOW\_007}).
+\end{itemize}
+
+\subsubsection{Delete a workflow}
+It should be possible to delete a workflow.
+
+\paragraph{Process}
+The user moves his mouse over the workflow on the node tree and click on the deletion icon (red cross).
+
+\paragraph{Pre-conditions}
+
+\paragraph{Post-conditions}
+\begin{itemize}
+	\item The workflow has been deleted (\funcspec{FS\_WORKFLOW\_008}).
+	\item Workflow id has been removed from every profile which has a reference to the workflow (\funcspec{FS\_WORKFLOW\_009}).
+	\item Workflow id has been removed from every scope model which has a reference to the workflow (\funcspec{FS\_WORKFLOW\_010}).
+	\item Workflow id has been removed from every event model which has a reference to the workflow (\funcspec{FS\_WORKFLOW\_011}).
+	\item Workflow id has been removed from every form model which has a reference to the workflow (\funcspec{FS\_WORKFLOW\_012}).
+	\item Workflow id has been removed from every field model which has a reference to the workflow (\funcspec{FS\_WORKFLOW\_013}).
+\end{itemize}
+
+% action
+\subsection{Action}
+
+\subsubsection{Add an action}
+It should be possible to add an action.
+
+\paragraph{Process}
+The user moves his mouse over the "Action" entity in the nodes tree and click on the addition icon (green plus). The application then shows an edition panel and the user updates action settings.
+
+\paragraph{Pre-conditions}
+\begin{itemize}
+	\item Id of the new action must not already exist in the configuration.
+\end{itemize}
+
+\paragraph{Post-conditions}
+\begin{itemize}
+	\item A new action is added in the configuration (\funcspec{FS\_ACTION\_001}).
+\end{itemize}
+
+\subsubsection{Edit an action}
+It should be possible to edit an action.
+
+\paragraph{Process}
+The user selects an action in the nodes tree. The application shows an edition panel and the user updates action settings.
+
+\paragraph{Pre-conditions}
+\begin{itemize}
+	\item The new action id must not already exist in the configuration.
+\end{itemize}
+
+\paragraph{Post-conditions}
+\begin{itemize}
+	\item Action settings have been updated (\funcspec{FS\_ACTION\_002}).
+	\item Action id has been updated in every profile which has a reference to the action (\funcspec{FS\_ACTION\_003}).
+	\item Action id has been updated in every workflow which has a reference to the action (\funcspec{FS\_ACTION\_004}).
+	\item Action id has been updated in every workflow state which has a reference to the action (\funcspec{FS\_ACTION\_005}).
+\end{itemize}
+
+\subsubsection{Delete an action}
+It should be possible to delete an action.
+
+\paragraph{Process}
+The user moves his mouse over the action on the node tree and click on the deletion icon (red cross).
+
+\paragraph{Pre-conditions}
+
+\paragraph{Post-conditions}
+\begin{itemize}
+	\item The action has been deleted (\funcspec{FS\_ACTION\_006}).
+	\item Action id has been removed from every profile which has a reference to the action (\funcspec{FS\_ACTION\_007}).
+	\item Action id has been removed from every workflow which has a reference to the action (\funcspec{FS\_ACTION\_008}).
+	\item Action id has been removed from every workflow state which has a reference to the action (\funcspec{FS\_ACTION\_009}).
+\end{itemize}
+
+% workflow state
+\subsection{Workflow state}
+
+\subsubsection{Add a workflow state}
+It should be possible to add a workflow state.
+
+\paragraph{Process}
+The user moves his mouse over the "Workflow state" entity in the nodes tree and click on the addition icon (green plus). The application then shows an edition panel and the user updates workflow state settings.
+
+\paragraph{Pre-conditions}
+\begin{itemize}
+	\item Id of the new workflow state must not already exist in the configuration.
+\end{itemize}
+
+\paragraph{Post-conditions}
+\begin{itemize}
+	\item A new workflow state is added in the configuration (\funcspec{FS\_WORKFLOW\_STATE\_001}).
+\end{itemize}
+
+\subsubsection{Edit a workflow state}
+It should be possible to edit a workflow state.
+
+\paragraph{Process}
+The user selects a workflow state in the nodes tree. The application shows an edition panel and the user updates workflow state settings.
+
+\paragraph{Pre-conditions}
+\begin{itemize}
+	\item The new workflow state id must not already exist in the configuration.
+\end{itemize}
+
+\paragraph{Post-conditions}
+\begin{itemize}
+	\item Workflow state settings have been updated (\funcspec{FS\_WORKFLOW\_STATE\_002}).
+\end{itemize}
+
+\subsubsection{Delete a workflow state}
+It should be possible to delete a workflow state.
+
+\paragraph{Process}
+The user moves his mouse over the workflow state on the node tree and click on the deletion icon (red cross).
+
+\paragraph{Pre-conditions}
+
+\paragraph{Post-conditions}
+\begin{itemize}
+	\item The workflow state has been deleted (\funcspec{FS\_WORKFLOW\_STATE\_003}).
+\end{itemize}
+
+% form model
+\subsection{Form model}
+
+\subsubsection{Add a form model}
+It should be possible to add a form model.
+
+\paragraph{Process}
+The user moves his mouse over the "Form model" entity in the nodes tree and click on the addition icon (green plus). The application then shows an edition panel and the user updates form model settings.
+
+\paragraph{Pre-conditions}
+\begin{itemize}
+	\item Id of the new form model must not already exist in the configuration.
+\end{itemize}
+
+\paragraph{Post-conditions}
+\begin{itemize}
+	\item A new form model is added in the configuration (\funcspec{FS\_FORM\_MODEL\_001}).
+\end{itemize}
+
+\subsubsection{Edit a form model}
+It should be possible to edit a form model.
+
+\paragraph{Process}
+The user selects a form model in the nodes tree. The application shows an edition panel and the user updates form model settings.
+
+\paragraph{Pre-conditions}
+\begin{itemize}
+	\item The new form model id must not already exist in the configuration.
+\end{itemize}
+
+\paragraph{Post-conditions}
+\begin{itemize}
+	\item Form model settings have been updated (\funcspec{FS\_FORM\_MODEL\_002}).
+	\item Form model id has been updated in "Profile/Form models" matrix (\funcspec{FS\_FORM\_MODEL\_003}).
+	\item Form model id has been updated in every scope model which has a reference to the form model (\funcspec{FS\_FORM\_MODEL\_004}).
+	\item Form model id has been updated in every event which has a reference to the form model (\funcspec{FS\_FORM\_MODEL\_005}).
+\end{itemize}
+
+\subsubsection{Delete a form model}
+It should be possible to delete a form model.
+
+\paragraph{Process}
+The user moves his mouse over the form model on the node tree and click on the deletion icon (red cross).
+
+\paragraph{Pre-conditions}
+
+\paragraph{Post-conditions}
+\begin{itemize}
+	\item The form model has been deleted (\funcspec{FS\_FORM\_MODEL\_006}).
+	\item Form model id has been removed in "Profile/Form models" matrix (\funcspec{FS\_FORM\_MODEL\_007}).
+	\item Form model id has been removed from every scope model which has a reference to the form model (\funcspec{FS\_FORM\_MODEL\_008}).
+	\item Form model id has been removed from every event model which has a reference to the form model (\funcspec{FS\_FORM\_MODEL\_009}).
+\end{itemize}
+
+% workflow widget
+\subsection{Workflow widget}
+
+\subsubsection{Add an workflow widget}
+It should be possible to add an workflow widget.
+
+\paragraph{Process}
+The user moves his mouse over the "Workflow widget" entity in the nodes tree and click on the addition icon (green plus). The application then shows an edition panel and the user updates workflow widget settings.
+
+\paragraph{Pre-conditions}
+\begin{itemize}
+	\item Id of the new workflow widget must not already exist in the configuration.
+\end{itemize}
+
+\paragraph{Post-conditions}
+\begin{itemize}
+	\item A new workflow widget is added in the configuration (\funcspec{FS\_WORKFLOW\_WIDGET\_001}).
+\end{itemize}
+
+\subsubsection{Edit an workflow widget}
+It should be possible to edit an workflow widget.
+
+\paragraph{Process}
+The user selects an workflow widget in the nodes tree. The application shows an edition panel and the user updates workflow widget settings.
+
+\paragraph{Pre-conditions}
+\begin{itemize}
+	\item The new workflow widget id must not already exist in the configuration.
+\end{itemize}
+
+\paragraph{Post-conditions}
+\begin{itemize}
+	\item Workflow widget settings have been updated (\funcspec{FS\_WORKFLOW\_WIDGET\_002}).
+\end{itemize}
+
+\subsubsection{Delete an workflow widget}
+It should be possible to delete an workflow widget.
+
+\paragraph{Process}
+The user moves his mouse over the workflow widget on the node tree and click on the deletion icon (red cross).
+
+\paragraph{Pre-conditions}
+
+\paragraph{Post-conditions}
+\begin{itemize}
+	\item The workflow widget has been deleted (\funcspec{FS\_WORKFLOW\_WIDGET\_003}).
+\end{itemize}
+
+% privacy policy
+\subsection{Privacy policy}
+
+\subsubsection{Add a privacy policy}
+It should be possible to add a privacy policy.
+
+\paragraph{Process}
+The user moves his mouse over the "Privacy policy" entity in the nodes tree and click on the addition icon (green plus). The application then shows an edition panel and the user updates privacy policy settings.
+
+\paragraph{Pre-conditions}
+\begin{itemize}
+	\item Id of the new privacy policy must not already exist in the configuration.
+\end{itemize}
+
+\paragraph{Post-conditions}
+\begin{itemize}
+	\item A new privacy policy is added in the configuration (\funcspec{FS\_PRIVACY\_POLICY\_001}).
+\end{itemize}
+
+\subsubsection{Edit a privacy policy}
+It should be possible to edit a privacy policy.
+
+\paragraph{Process}
+The user selects a privacy policy in the nodes tree. The application shows an edition panel and the user updates privacy policy settings.
+
+\paragraph{Pre-conditions}
+\begin{itemize}
+	\item The new privacy policy id must not already exist in the configuration.
+\end{itemize}
+
+\paragraph{Post-conditions}
+\begin{itemize}
+	\item Privacy policy settings have been updated (\funcspec{FS\_PRIVACY\_POLICY\_002}).
+\end{itemize}
+
+\subsubsection{Delete a privacy policy}
+It should be possible to delete a privacy policy.
+
+\paragraph{Process}
+The user moves his mouse over the privacy policy on the node tree and click on the deletion icon (red cross).
+
+\paragraph{Pre-conditions}
+
+\paragraph{Post-conditions}
+\begin{itemize}
+	\item The privacy policy has been deleted (\funcspec{FS\_PRIVACY\_POLICY\_003}).
+\end{itemize}
+
+\end{document}

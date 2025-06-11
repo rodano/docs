@@ -1,0 +1,168 @@
+\documentclass[11pt,a4paper,oneside]{article}
+
+\input{../template}
+
+% watermark
+%\usepackage{draftwatermark}
+%\SetWatermarkText{\includegraphics[scale=0.5]{draft}}
+%\SetWatermarkLightness{0.99}
+%\SetWatermarkScale{5}
+
+\begin{document}
+\title{Node templates specifications}
+\newcommand{\documentid}{Configurator-NodeTemplatesSpecifications}
+\newcommand{\version}{DEV-SNAPSHOT}
+\date{April 1, 2025}
+
+\input{../header}
+
+\clearpage
+
+\tableofcontents
+
+\clearpage
+
+\section{Introduction}
+
+Node templates are configuration elements (for example field models, workflows or entire studies) that are saved in a repository on a server to be reused.\\
+There is one official repository for all templates of Rodanotech located at \url{http://templates.rodanotech.ch}.\\
+
+\section{Node templates types}
+For now, following entities can be saved as templates:
+\begin{itemize}
+	\item Study
+	\item Sheet (combination of a dataset model and a page)
+	\item Dataset model
+	\item Field model
+	\item Workflow
+\end{itemize}
+
+
+\section{Node templates server}
+
+All templates are stored as files on a server. The server provides an API to add or delete templates. This API is written in Javascript and run with Node.js.\\
+
+\subsection{Source code}
+The code source of the server part is hosted in the same repository as the StudyBuilder application. It consists of one single Javascript file.
+
+\subsection{Server setup}
+The template server requires a working Unix OS with Node.js and a special Node.js script called "forever".\\
+
+The command to start the server is:
+\begin{lstlisting}
+forever start template.server.node.js
+\end{lstlisting}
+
+\section{Node templates management in KvConfig}
+KvConfig is used to manage node templates. It is able to create templates from nodes of configuration and to save them in a repository.\\
+KvConfig can be configured to work with multiple template repositories.
+
+\subsection{Repositories configuration}
+
+\subsubsection{Local repository}
+By default, KvConfig comes with a pre-configured local template repository. It allows storing templates locally directly inside the browser and acts exactly as the official Rodanotech template server.\\
+However, by definition, this repository can not be used to share templates across the company because it is not shared between KvConfig users.
+
+\subsubsection{Configure official Rodanotech repository}
+
+The first things to do is to configure the official Rodanotech template repository.\\
+\begin{itemize}
+	\item Use menu Tools\textgreater Templates
+	\item Click "Manage repositories" in the upper right corner of the templates window
+	\item Click "Add repository"
+	\item Set "rodano" for id, "http://templates.rodanotech.ch" for URL, "rodano" for login and the usual password for password
+	\item Click "Test" to check everything is alright
+	\item Click "Submit" to save the configuration
+	\item Close the window
+\end{itemize}
+
+In the title of templates window, it is now possible to switch to the newly created "rodano" repository. Existing templates should appear, sorted in different sections.\\
+
+\subsection{Node template creation}
+
+Go to the node you would like to save as a template. If it is a supported entity, there should be a disk icon in the title of the node form.\\
+
+\begin{figure}[h!]
+\caption{Save a template from an existing node}
+\includegraphics[width=\linewidth]{node_templates_save_template_1}
+\end{figure}
+
+After clicking this icon, it is required to set a name and a description for this template. You should also check that the selected repository is "rodano".\\
+
+\begin{figure}[h!]
+\caption{Add a name and a description for a template}
+\includegraphics{node_templates_save_template_2}
+\end{figure}
+
+\subsubsection{Limitations}
+All node information won't be saved in the template. Here are the limitations.
+
+\paragraph{Field model}
+All references to validators will be removed. All initialization rules and modifications rules will be removed.
+
+\paragraph{Dataset model}
+All field models will be cleaned as described above.
+
+\paragraph{Workflow}
+All workflow rules and rules on workflow actions will be removed.
+
+\paragraph{Sheet}
+Sheet templates are specific in the way they are a combination of a form model and the dataset model and the field models used in the form model. It is not possible to create a sheet template from a page which is linked to more than one document.
+
+\subsubsection{Restrictions for StudyBuilder}
+When creating a template for StudyBuilder, there is also specific restrictions.
+
+\paragraph{Study}
+\begin{itemize}
+	\item study must contain scope models with id \mbox{"STUDY"}, \mbox{"COUNTRY"}, \mbox{"CENTER"} and \mbox{"PATIENT"}
+	\item study must have only one scheduled event group with whose id is "SCHEDULING"
+	\item if there is a baseline event model, its id must be "BASELINE" and it must be inside scheduled event group
+	\item if there is a screening event model, its id must be "SCREENING" and it must be inside scheduled event group
+	\item validators \mbox{"REQUIRED"} and \mbox{"REQUIRED\_WITH\_QUERY"} must exist
+	\item profiles \mbox{"INVESTIGATOR"}, \mbox{"DATAMANAGER"}, \mbox{"CRA"}, \mbox{"CRO"} and \mbox{"SPONSOR"} must exist
+	\item workflows \mbox{"QUERY"} and \mbox{"PROTOCOL\_DEVIATION"} must exist
+	\item workflows \mbox{"EVENT\_SDV"} and \mbox{"PAGE\_SDV"} must exist
+	\item workflows \mbox{"PAGE\_ENTRY"}, \mbox{"DATA\_MANAGEMENT"} and \mbox{"EVENTS\_REPORTING"} must exist
+\end{itemize}
+
+\subsection{Node template usage}
+
+Node templates which are not studies can be added in any existing configuration.\\
+
+While editing an existing configuration, use the menu Tools\textgreater Templates to go on template management modal window. After selecting the right kind of template in the section on the left, click on the plus icon to add the selected template in the current configuration.\\
+
+\begin{figure}[h]
+\caption{Use a template}
+\includegraphics[width=\linewidth]{node_templates_use_template}
+\end{figure}
+
+\subsection{Node template deletion}
+
+While editing an existing configuration, use the menu Tools\textgreater Templates to go on template management modal window. After selecting the right kind of template in the section on the left, click on the plus red cross to delete the selected template in the current configuration.\\
+
+\begin{figure}[h]
+\caption{Delete a template}
+\includegraphics[width=\linewidth]{node_templates_delete_template}
+\end{figure}
+
+\subsection{Node template modifications}
+
+The process to edit a node template depends on the kind of templates.
+
+\subsubsection{Templates which are not study}
+There is no way to edit these kinds of templates. They must be deleted and re-created.
+
+\subsubsection{Study templates}
+Study templates can be edited in KvConfig. In stand-alone mode, use the welcome modal window to load a study from a configured template repository.
+
+\begin{figure}[h]
+\caption{Load a study from a repository}
+\includegraphics[width=\linewidth]{node_templates_load_study}
+\end{figure}
+
+It is then possible to push a template to the template server using menu Configuration\textgreater Push template to server.
+
+\section{Templates usage in StudyBuilder}
+StudyBuilder is pre-configured to show study, page and attribute templates from official Rodanotech repository. Every user of the StudyBuilder will have access to templates stored on this server.
+
+\end{document}
